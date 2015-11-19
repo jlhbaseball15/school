@@ -61,8 +61,7 @@ public class DiagonAlleyGuide {
 	public static void balance(int galleon, int sickle, int knut){
 		System.out.println("You have " + galleon + " Galleons, " + sickle + " Sickles, and " + knut + " Knuts");
 	}
-	public static void MainMenu() {
-		Scanner input = new Scanner(System.in);
+	public static void MainMenu(Scanner input) {
 		while(true){
 			//prints Main menu
 			System.out.println("Main Menu:");
@@ -79,13 +78,13 @@ public class DiagonAlleyGuide {
 			
 			if ((choice >= 1) && (choice <= 4)){
 				switch(choice) {
-				case 1: GringottsMenu();
+				case 1: GringottsMenu(input);
 						break;
 				case 2: System.out.println();
 						getInventory(inventory);
 						getNeeded(inventory);
 						break;
-				case 3: ShoppesMenu();
+				case 3: ShoppesMenu(input);
 						break;
 				
 				case 4: 
@@ -118,8 +117,7 @@ public class DiagonAlleyGuide {
 		}
 	}
 	
-	public static void GringottsMenu(){
-		Scanner input = new Scanner(System.in);
+	public static void GringottsMenu(Scanner input){
 		while(true) {
 		System.out.println("Gringotts Bank");
 		System.out.println("1. Exchange Money");
@@ -165,8 +163,7 @@ public class DiagonAlleyGuide {
 		}
 	}
 	
-	public static void ShoppesMenu(){
-		Scanner input = new Scanner(System.in);
+	public static void ShoppesMenu(Scanner input){
 		while (true){
 			System.out.println("Shoppes");
 			System.out.println("1. Broomstix");
@@ -440,10 +437,11 @@ public class DiagonAlleyGuide {
 	}
 	
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome to Diagon Alley!");
 		System.out.println();
 		setInventory();
-		MainMenu();
+		MainMenu(input);
 	}
 
 }
